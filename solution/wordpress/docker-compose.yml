@@ -6,10 +6,10 @@ services:
        - mysql:/var/lib/mysql
      restart: always
      environment:
-       MYSQL_ROOT_PASSWORD: somewordpress
-       MYSQL_DATABASE: wordpress
-       MYSQL_USER: wordpress
-       MYSQL_PASSWORD: wordpress
+       MYSQL_ROOT_PASSWORD: ${press1}
+       MYSQL_DATABASE: ${press2}
+       MYSQL_USER: ${press2}
+       MYSQL_PASSWORD: ${press2}
      container_name: wp_mysql
 
   wordpress:
@@ -21,9 +21,9 @@ services:
     restart: unless-stopped
     environment:
       WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: ${press3}
+      WORDPRESS_DB_PASSWORD: ${press3}
+      WORDPRESS_DB_NAME: ${press3}
     container_name: wp_site
 
   nginx:
